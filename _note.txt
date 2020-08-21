@@ -1,0 +1,54 @@
+password 
+Summer2020
+--------* Done *------------
+
+
+yarn workspace jwala-cms add
+
+--------------R&D--------------
+content types- 
+
+
+--------* Roadmap *------------
+* Data Model -Rev 1
+* Sample data load
+* GraphQl - queries 
+* gatsby integration - generate site - by function -Azure devops
+* hosting - automation  - by function 
+* storage integration 
+
+* Users 
+* roles
+* Data Model -Rev 2
+
+
+* -----------------admin site
+ - provision 
+    >new projects
+    >new sites
+    >new admins
+
+* Data Model -Rev 3
+
+* ---------------cms site
+ - login 
+ - creates system types: pages, menus
+ - publishing
+ - data collection
+ - integration
+
+* Data Model -Rev 4
+
+
+- upload new templates 
+
+
+
+------------additional-------------------
+* search api
+* forms
+* Workflows
+* oauth-google facebook
+* payments
+* memberships
+* 

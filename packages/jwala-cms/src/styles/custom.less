@@ -1,0 +1,152 @@
+html,
+body {
+    height: 100%;
+}
+
+//-------utils --
+
+.centered {
+    display     : table;
+    margin-right: auto;
+    margin-left : auto;
+}
+
+// .clearfix {
+//     overflow: auto;
+// }
+
+//----------------
+.jpagenav {
+    border-top: 1px solid @highlighter1;
+}
+
+.jtoolbar {
+    padding         : 5px;
+    background-color: @content-hdr-color  !important;
+    border-bottom   : 1px solid @highlighter3;
+}
+
+.jcontent {
+    min-height      : 83vh;
+    padding         : 0px !important;
+    background-color: @content-color  !important;
+    border          : 1px solid @highlighter3;
+    border-radius   : 2px;
+
+}
+
+.jlist {
+    overflow-y: scroll;
+}
+
+.jview {
+    margin       : 5px;
+    border-radius: 1px;
+}
+
+.jnavbar {
+    z-index: 9949 !important;
+}
+
+.jfooter {
+    padding   : 4px;
+    text-align: center;
+}
+
+.jpanel {
+    padding   : 20px;
+    text-align: center;
+}
+
+.jcenter {
+    text-align: center;
+}
+
+.jbrand {
+    padding    : 18px 20px;
+    display    : inline-block;
+    font-weight: 1200;
+}
+
+.jtitle {
+    color: @title-color;
+}
+
+.jheader {
+    margin-bottom: 2px;
+    padding      : 3px 15px;
+}
+
+.jlistIcon {
+    color         : @gray-500;
+    text-align    : center;
+    vertical-align: middle;
+}
+
+.jlistItem {
+    display: 'flex';
+    height : '60px';
+
+    .jtitle {
+        color         : @primary;
+        padding-bottom: 4px;
+    }
+
+    .jdesc {
+        font-weight: 'lighter';
+        color      : @gray-800;
+        padding    : 0px 2px;
+    }
+
+    .jaudit {
+        font-size: x-small;
+        color    : @gray-600;
+        padding  : 0px 2px;
+    }
+}
+
+.jhdr-panel {
+    .jhdr-title {
+        padding      : 4px 10px;
+        background   : @primary;
+        background   : -moz-linear-gradient(top, @primary-200 0%, @primary-100 50%, @primary 51%, @primary-300 100%);
+        background   : -webkit-gradient(left top, left bottom, color-stop(0%, @primary-200), color-stop(50%, @primary-100), color-stop(51%, @primary), color-stop(100%, @primary-300));
+        background   : -webkit-linear-gradient(top, @primary-200 0%, @primary-100 50%, @primary 51%, @primary-300 100%);
+        background   : -o-linear-gradient(top, @primary-200 0%, @primary-100 50%, @primary 51%, @primary-300 100%);
+        background   : -ms-linear-gradient(top, @primary-200 0%, @primary-100 50%, @primary 51%, @primary-300 100%);
+        background   : linear-gradient(to bottom, @primary-200 0%, @primary-100 50%, @primary 51%, @primary-300 100%);
+        border-bottom: 1px solid @highlighter3;
+        color        : @white;
+    }
+}
+
+.jwizard {
+    .jwzpnl {
+        margin    : 2px;
+        padding   : 2px;
+        border    : 0.1px solid @gray-100;
+        min-height: 68vh;
+
+        .jwzbar {
+            padding         : 2px;
+            background-color: @gray-100  !important;
+            border          : 0.1px solid @gray-200;
+        }
+
+        .jwzform {
+            border    : 0.1px solid @gray-200;
+            padding   : 15px;
+            min-height: 64vh;
+            background-color: @white;
+       
+            .jwzstep{
+                padding   : 15px;
+            }
+        }
+
+    }
+    .jprocess {
+        padding      : 15px;
+        border-bottom: 1px solid @highlighter3;
+    }
+}

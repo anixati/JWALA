@@ -1,0 +1,19 @@
+{
+  "name": "jwala-lib",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "clear": "rimraf build",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cbws": "run-s clear watch"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "tslint": "^5.12.0",
+    "typescript": "^3.9.5"
+  }
+}
