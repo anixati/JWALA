@@ -1,6 +1,5 @@
 import { createContext, useContext } from "react";
 
-
 export interface IStepInfo {
     id: string;
     title: string;
@@ -55,15 +54,10 @@ export function createWizard() {
         }
     }
 }
-export type wzdType = ReturnType<typeof createWizard>;
-export const wzdContext = createContext<wzdType | null>(null);
+const wzdContext = createContext<ReturnType<typeof createWizard> | null>(null);
 export const useWzd = () => {
     const context = useContext(wzdContext);
-    if (!context) {
+    if (!context)
         throw new Error('Must be used within a wzdPanel.');
-    }
-
-
-
     return context;
 };

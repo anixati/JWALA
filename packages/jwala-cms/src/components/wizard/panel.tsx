@@ -1,9 +1,9 @@
 import { observer, useLocalStore } from "mobx-react";
-import React, { useEffect } from "react";
+import React from "react";
 import { Content } from "rsuite";
-import { KoButton, wzdStepProps } from "..";
+import { KoButton } from "..";
 import { HdrPanel, LeftSplitPanel, ViewPanel } from "../../layouts";
-import { createWizard, wzdContext, IStepInfo } from "./context";
+import { createWizard, IStepInfo } from "./context";
 import { WzdProgress } from "./progress";
 
 
@@ -13,8 +13,7 @@ export interface WzdPanelProps {
 
 export const WzdPanel: React.FC<WzdPanelProps> = observer((rx) => {
     if (!rx.children) return null;
-   // const nodes = React.Children.toArray(rx.children).filter(x=>React.isValidElement<wzdStepProps>(x));
-    const steps = React.Children.map(rx.children, (child: React.ReactElement<wzdStepProps>) => {return { ...child.props } as IStepInfo});
+    const steps = React.Children.map(rx.children, (child) => { return { ...child.props } as IStepInfo });
     const store = useLocalStore(createWizard);
     store.init(steps);
 
@@ -23,12 +22,9 @@ export const WzdPanel: React.FC<WzdPanelProps> = observer((rx) => {
     const onSave = () => { }
     const onComplete = () => { store.onComplete() }
 
-      // useEffect(() => {
+    // useEffect(() => {
     //     store.init(steps);
     // }, []);
-
-   // const activeStep = nodes[store.index];
-
     return (
         <HdrPanel title={rx.title} className="jwizard">
             <wzdContext.Provider value={store}>
