@@ -54,7 +54,7 @@ export function createWizard() {
         }
     }
 }
-const wzdContext = createContext<ReturnType<typeof createWizard> | null>(null);
+export const wzdContext = createContext<ReturnType<typeof createWizard> | null>(null);
 export const useWzd = () => {
     const context = useContext(wzdContext);
     if (!context)

@@ -3,7 +3,7 @@ import React from "react";
 import { Content } from "rsuite";
 import { KoButton } from "..";
 import { HdrPanel, LeftSplitPanel, ViewPanel } from "../../layouts";
-import { createWizard, IStepInfo } from "./context";
+import { createWizard, IStepInfo, wzdContext } from "./context";
 import { WzdProgress } from "./progress";
 
 
