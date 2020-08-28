@@ -1,5 +1,17 @@
 import React from "react";
 import { IconButtonProps, IconButton, Icon } from "rsuite";
+import { Loader } from "rsuite";
+
+
+
+export const LoadView: React.FC = () => {
+    return (
+        <div style={{ width: '100%', textAlign: 'center',paddingTop:'150' }}>
+            <Loader content="Initilaising..." vertical />
+        </div>
+    );
+};
+
 
 export interface ImageButtonProps extends IconButtonProps {
     icn: any;

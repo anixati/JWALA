@@ -24,11 +24,12 @@ export const DataItemList: React.FC<DataItemListProps> = observer((rx) => {
 
 export interface DataListItemProps {
     descVal: string,
-    auditVal: string,
+    auditVal: Date,
     alert: boolean,
     iconName?: string
 }
 export const DataListItem: React.FC<DataListItemProps> = (rx) => {
+    const auditDateStr =`${rx.auditVal.toISOString()}`;
     return (
         <FlexboxGrid align="middle">
             <FlexboxGrid.Item colspan={3} className="jlistIcon">
@@ -36,12 +37,12 @@ export const DataListItem: React.FC<DataListItemProps> = (rx) => {
             </FlexboxGrid.Item>
             <FlexboxGrid.Item colspan={21} className="jlistItem">
                 <div className="jlistItem">{rx.children}</div>
-                <div style={{}}>
+                <div >
                     <div className="jdesc">
                         {rx.descVal}
                     </div>
                     <div className="jaudit">
-                       Modified <Moment fromNow>{rx.auditVal}</Moment> 
+                       Modified <Moment fromNow>{auditDateStr}</Moment> 
                     </div>
                 </div>
             </FlexboxGrid.Item>

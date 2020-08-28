@@ -2,21 +2,19 @@ import { Fbs } from './fbs';
 import { ColRef, DocSnapshot } from './types';
 import { firestore } from 'firebase';
 
-export abstract class Entity {
-    public id: string = '';
-    public createdBy?: string;
-    public createdOn?: Date;
-    public modifiedBy?: string;
-    public modifiedOn?: Date;
-    public disabled?: boolean;
-    public get lastModified(): string {
-        return `${this.modifiedOn!.toISOString()}`;
-    }
+export interface IEntity {
+    id: string;
+    createdBy?: string;
+    createdOn?: Date;
+    modifiedBy?: string;
+    modifiedOn?: Date;
+    disabled?: boolean;
 }
 
-export abstract class Repository<T extends Entity>{
+export class Collection<T extends IEntity>{
     readonly _path: string;
     readonly _colref: ColRef
+    readonly _toEntity= (obj: any, docsp: any):T=>{ return obj as T }
     constructor(path: string) {
         this._path = path;
         this._colref = Fbs.ctx.Store.collection(this._path);
@@ -43,9 +41,8 @@ export abstract class Repository<T extends Entity>{
             modifiedOn: this.AsDate(docsp.data()!.modifiedOn),
             ...sobj
         };
-        return this.toEntity(obj, docsp);
+        return this._toEntity(obj, docsp);
     }
-    abstract toEntity(obj: any, docsp: any): T;
     private clone(data: T): { id: string, data: any } {
         const obj = Object.assign({}, data);
         const id = data.id;

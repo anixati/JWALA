@@ -1,39 +1,46 @@
 import { observer } from "mobx-react";
 import React from "react";
-import { Icon, InputGroup, InputNumber } from "rsuite";
-import { WzdPanel, WzdStep } from "../../components";
+import { WzdPanel, WzForm, WzText, TextField } from "../../components";
+import { Schema, ButtonToolbar, Button, FormGroup, FormControl } from "rsuite";
+
+export interface IAccVal {
+    name: string;
+    email: string;
+
+}
+
 
 
 export const NewEntity: React.FC = observer(() => {
-    // const { accStore } = useStore();
-    // const onSearch = (e) => {
-    // }
-    // const onNew = () => {
-    // }
-    return (
-        <>
-             <WzdPanel title="New Account">
-                <WzdStep id="1" title="step 1" desc="some ewjf;ewjf">
-                    <div>
-                        <InputNumber />
-                        <InputGroup >
-                            <InputGroup.Addon>
-                                <Icon icon="search" />
-                            </InputGroup.Addon>
-                        </InputGroup>
-                    </div>
-                </WzdStep>
-                <WzdStep id="2" title="step 2" desc="some ewjf;ewjf">
-                    <p>fdgdfgdfg</p>
-                </WzdStep>
-                <WzdStep id="3" title="step 3" desc="some ewjf;ewjf">
-                    <p>fdgdfgfd</p>
-                </WzdStep>
+    const { StringType } = Schema.Types;
+    const model = Schema.Model({
+        name: StringType().isRequired('This field is required.'),
+        email: StringType()
+            .isEmail('Please enter a valid email address.')
+            .isRequired('This field is required.')
+    });
+    const defaultVals: IAccVal = {
+        name: "",
+        email: "pb@gg.com"
+    };
 
-                <WzdStep id="4" title="step 3" desc="some ewjf;ewjf">
-                    <p>dfdf</p>
-                </WzdStep>
-            </WzdPanel>
-        </>
+    return (
+        <WzdPanel title="New Account" summary={<div>summary</div>} completed={<div>status</div>}>
+            <WzForm id={1} title="Extra details" data={model} values={defaultVals}>
+                {/* <TextField name="name" label="Account Name" />
+                <TextField name="email" label="Email" /> */}
+
+               
+
+            </WzForm>
+            <WzForm id={2} title="fff details" data={model} values={defaultVals}>
+                {/* <TextField name="name" label="Account Name" />
+                <TextField name="email" label="Email" /> */}
+
+                <FormControl name="name" placeholder="name"/>
+                <FormControl name="email" placeholder="Email" />
+
+            </WzForm>
+        </WzdPanel>
     )
 })

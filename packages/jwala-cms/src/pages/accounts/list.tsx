@@ -16,8 +16,6 @@ export const EntityList: React.FC = observer(() => {
         accStore.loadAccounts();
     }
     const onNew = () => {
-        // const account = new Account({ Name: 'Test', Description: 'description value' });
-        // accStore.addAccount(account);
         navigate('/accounts/new');
     }
     return (
@@ -25,7 +23,7 @@ export const EntityList: React.FC = observer(() => {
             <List hover>
                 {accStore.items.map((item, index) => (
                     <List.Item key={index} index={index}>
-                        <DataListItem descVal={item.Description!} auditVal={item.lastModified} alert={item.disabled!}>
+                        <DataListItem descVal={item.Description!} auditVal={item.modifiedOn!} alert={item.disabled!}>
                             <Link to={`/accounts/${item.id}`}><h5>{item.Name}</h5></Link>
                         </DataListItem>
                     </List.Item>

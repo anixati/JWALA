@@ -1,21 +1,17 @@
-import { Entity, Repository } from "../core";
-import { plainToClass } from 'class-transformer';
+import { IEntity, Collection } from "../core";
+//import { plainToClass } from 'class-transformer';
 
 //-----------------------Account----------------------
-export class Account extends Entity{
-    public Name: string = '';
-    public Description?: string;
-    public constructor(init?: Partial<Account>) {
-        super();
-        Object.assign(this, init);
-    }
+export interface Account extends IEntity{
+    name: string;
+    description?: string;
 }
 
-export class AccountRepo extends Repository<Account> {
+export class Accounts extends Collection<Account>{
     constructor() {
-        super('jw_accounts');
+        super('jw_accounts')
     }
-    toEntity(obj: any, docsp: any): Account {
-        return plainToClass(Account, obj) as unknown as Account;
-    }
+    // toEntity(obj: any, docsp: any): Account {
+    //     return plainToClass(Account, obj) as unknown as Account;
+    // }
 }

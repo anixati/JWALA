@@ -1,8 +1,10 @@
-import React from "react";
-import { IStepInfo, useWzd } from "./context";
-import { observer } from "mobx-react";
+// import React, { forwardRef, Ref, useImperativeHandle } from "react";
+// import { IStepInfo, IStepObj } from "./context";
 
-export const WzdStep: React.FC<IStepInfo> = observer((rx) => {
-    const wzd = useWzd();
-    return wzd.isActive(rx.id) ? <div className="jwzstep">{rx.children}</div> : null;
-});
+// export const WzdStep: React.FC<IStepInfo> = forwardRef((props, ref: Ref<IStepObj>) => {
+//     useImperativeHandle(ref, () => ({ canNext:async() => true, submit:() => true, reset:()=>{}}));
+//     return <div className="jwzstep">
+//         {props.children}
+//     </div>
+// });
+

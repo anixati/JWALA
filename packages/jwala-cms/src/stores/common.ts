@@ -1,6 +1,6 @@
 import { action, observable } from "mobx";
 import { Notification } from "rsuite";
-import { Entity } from "../core";
+import { IEntity } from "../core";
 export interface IStoreBase {
     isLoading: boolean;
     loadingMsg: string;
@@ -43,8 +43,7 @@ export abstract class StoreBase implements IStoreBase {
     }
 }
 
-
-export abstract class ListBase<T extends Entity> extends StoreBase {
+export abstract class ListBase<T extends IEntity> extends StoreBase {
     @observable items: Array<T> = new Array<T>();
     @action loadList(item: T) {
         const itm = this.items.find(x => x.id === item.id);

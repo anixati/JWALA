@@ -11,6 +11,8 @@ import { DefaultPage } from "./home";
 import { ModalRoot } from "./modals";
 import { SitesPage } from "./sites";
 import { useAuthState } from "../core";
+import { LoadView } from "../components";
+
 
 
 const AuthRoute: React.FC<RouteProps> = (rx) => {
@@ -44,6 +46,7 @@ export const AppRoutes: React.FC = () => {
             {isModal &&
                 <Route path="/modal/:id" element={<ModalRoot />} />
             }
+            <Route path="/go" element={<LoadView />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

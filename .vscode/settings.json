@@ -2,8 +2,6 @@
   "files.exclude": {
     ".vscode": true,
     "build": true,
-    ".gitignore": true,
-    "node_modules": true,
     "firebase-debug.log": true,
     "firestore-debug.log": true,
     "ui-debug.log": true,
@@ -11,7 +9,6 @@
     "packages\\jwala-api\\node_modules": true,
     "packages\\jwala-api\\dist": true,
     "packages\\jwala-api\\package-lock.json": true,
-    "packages\\jwala-api\\webpack.config.js": true,
     "firestore.rules": true,
     "firestore.indexes.json": true,
     ".firebaserc": true,
@@ -26,13 +23,12 @@
     "packages\\jwala-cms\\src\\images": true,
     "tsconfig.json": true,
     "packages\\jwala-cms\\yarn-error.log": true,
-    "packages\\jwala-cms\\webpack.config.prod.js": true,
-    "packages\\jwala-cms\\webpack.config.dev.js": true,
     "packages\\jwala-cms\\webpack.common.js": true,
     "packages\\jwala-cms\\prod.env": true,
     "packages\\jwala-cms\\dev.env": true,
     "packages\\jwala-lib": true,
-    "packages\\jwala-api": true
+    "packages\\jwala-api": true,
+    "node_modules": true
   },
   "workbench.colorTheme": "Dracula Soft"
 }
