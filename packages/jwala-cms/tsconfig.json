@@ -22,16 +22,8 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["es5", "es6", "dom"]
+    "forceConsistentCasingInFileNames": true
   },
   "compileOnSave": true,
-  "references": [
-    {
-      "path": "../jwala-lib/**/*.ts"
-    }
-  ],
-  "include": [
-    "src/**/*"
-  ]
+  "references": [{ "path": "../koreui/lib" }]
 }

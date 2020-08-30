@@ -1,7 +1,7 @@
 import React from "react";
 import { ViewLayout } from "../../layouts/viewLayout";
 import { useLocalStore, useObserver } from "mobx-react";
-import { Button, Modal } from "rsuite";
+import { KoInitLoader } from "../../packages/koreui";
 
 
 export const SchemaPage: React.FC = () => {
@@ -30,7 +30,9 @@ export const SchemaPage: React.FC = () => {
 
 
             </h3>
-            
+            <div>
+                <KoInitLoader/>
+            </div>
         </ViewLayout>
     ));
 };

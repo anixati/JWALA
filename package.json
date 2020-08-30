@@ -9,21 +9,24 @@
       "packages/*"
     ],
     "nohoist": [
-      "jwala-lib"
+      "jwala-lib",
+      "koreui"
     ]
   },
   "scripts": {
+    "b-ui": "yarn workspace koreui build",
     "b-api": "yarn workspace jwala-api build",
     "b-lib": "yarn workspace jwala-lib build",
     "b-cms": "yarn workspace jwala-cms build",
-    "bfd": "run-s b-lib b-cms",
+    "bfd": "run-s ctrls b-cms",
     "bbd": "run-s b-lib b-api",
     "build": "run-s b-lib b-api b-cms",
     "w-lib": "yarn workspace jwala-lib watch",
     "w-api": "yarn workspace jwala-api watch",
+    "w-ui": "yarn workspace koreui build-watch",
     "w-cms": "yarn workspace jwala-cms watch",
     "api": "run-p w-lib w-api",
-    "app": "run-p w-lib w-cms",
+    "app": "run-p w-ui w-cms",
     "deploy-api": "firebase deploy --only functions"
   },
   "repository": {
