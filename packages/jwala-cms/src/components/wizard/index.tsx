@@ -1,3 +1,2 @@
-export * from "./step"
-export * from "./panel"
+export * from "./main"
 export * from "./forms"

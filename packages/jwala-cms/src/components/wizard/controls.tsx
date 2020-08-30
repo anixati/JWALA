@@ -2,6 +2,9 @@ import React from "react";
 import { Header, Steps } from "rsuite";
 import { useWzd } from "./context";
 import { ViewPanel } from "../../layouts";
+import { useFormikContext } from "formik";
+import {JsonTable} from 'react-json-to-html';
+
 
 export const WzdProgress: React.FC<{ status: boolean }> = (rx) => {
     const wzd = useWzd();
@@ -15,6 +18,17 @@ export const WzdProgress: React.FC<{ status: boolean }> = (rx) => {
         </Header>
     );
 };
+
+export const WzdSummary: React.FC = () => {
+    const { values } = useFormikContext();
+    return (
+        <div className="jwzstep">
+            <h2>Summary</h2>
+            <JsonTable json={values} />
+        </div>
+    );
+};
+
 
 
 export const WzdHelp: React.FC = () => {

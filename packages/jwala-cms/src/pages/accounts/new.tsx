@@ -1,46 +1,59 @@
 import { observer } from "mobx-react";
 import React from "react";
-import { WzdPanel, WzForm, WzText, TextField } from "../../components";
-import { Schema, ButtonToolbar, Button, FormGroup, FormControl } from "rsuite";
+import { WzForm, WzStep, WfdText, KoText, KoNote, KoNumber } from "../../components";
+import * as yo from 'yup';
+import { Field, ErrorMessage } from "formik";
+import { FormGroup, ControlLabel, Input } from "rsuite";
 
-export interface IAccVal {
+export interface INewAccount {
     name: string;
+    level: number;
+    desc: string;
     email: string;
-
+    phone: string;
 }
 
 
 
 export const NewEntity: React.FC = observer(() => {
-    const { StringType } = Schema.Types;
-    const model = Schema.Model({
-        name: StringType().isRequired('This field is required.'),
-        email: StringType()
-            .isEmail('Please enter a valid email address.')
-            .isRequired('This field is required.')
-    });
-    const defaultVals: IAccVal = {
-        name: "",
-        email: "pb@gg.com"
-    };
+    const initial: INewAccount = { name: '', level: 1, desc: '', email: '', phone: '' };
+    const onSubmit = (vals) => {
+        console.log(vals);
+    }
 
     return (
-        <WzdPanel title="New Account" summary={<div>summary</div>} completed={<div>status</div>}>
-            <WzForm id={1} title="Extra details" data={model} values={defaultVals}>
-                {/* <TextField name="name" label="Account Name" />
-                <TextField name="email" label="Email" /> */}
+        <WzForm values={initial} title="New Account" onSubmit={onSubmit} completed={<div>status</div>}>
+            <WzStep id={1} title="General" schema={yo.object({
+                name: yo.string().required("required"),
+                level: yo.number().required("required"),
+                desc: yo.string().required("required")
+            })} >
 
-               
+                <KoText name="name" placeholder="Name" label="Name"  help="help test"/>
+                <KoNumber name="level" placeholder="Level" label="Name"  help="help test"/>
+                <KoNote name="desc" placeholder="Description" label="Description"  help="help test"/>
 
-            </WzForm>
-            <WzForm id={2} title="fff details" data={model} values={defaultVals}>
-                {/* <TextField name="name" label="Account Name" />
-                <TextField name="email" label="Email" /> */}
 
-                <FormControl name="name" placeholder="name"/>
-                <FormControl name="email" placeholder="Email" />
 
-            </WzForm>
-        </WzdPanel>
+            </WzStep>
+            <WzStep id={2} title="Contact" schema={yo.object({
+                email: yo.string().required("required"),
+                phone: yo.number().required("required")
+            })}>
+
+                <div className="rs-form-group">
+                    <label className="rs-control-label">email</label>
+                    <Field name="email" type="text" />
+                    <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                </div>
+                <div className="rs-form-group">
+                    <label className="rs-control-label">phone</label>
+                    <Field name="phone" type="text" />
+                    <ErrorMessage name="phone" component="div" className="invalid-feedback" />
+                </div>
+
+            </WzStep>
+
+        </WzForm>
     )
 })

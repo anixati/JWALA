@@ -1,22 +1,15 @@
 import { createContext, useContext } from "react";
-import { number, string } from "prop-types";
 
 export interface IStepInfo {
     id: number;
     title: string;
 }
 export interface IStepObj {
-    canNext: () => boolean;
-    submit: () => boolean;
+    canNext: () => Promise<boolean>;
+    submit: (values: any) => Promise<any>;
     reset: () => void;
+    schema: () => any;
 }
-// export interface IStepData {
-//     data: any;
-//     errors: any;
-// }
-// export interface IWizData {
-//     [key: number]: IStepData;
-// }
 
 export function createWizard() {
     return {

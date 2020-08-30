@@ -28,7 +28,15 @@
     "packages\\jwala-cms\\dev.env": true,
     "packages\\jwala-lib": true,
     "packages\\jwala-api": true,
-    "node_modules": true
+    "node_modules": true,
+    "packages\\jwala-cms\\webpack.config.prod.js": true,
+    "packages\\jwala-cms\\webpack.config.dev.js": true,
+    "_note.txt": true,
+    ".gitignore": true,
+    "README.md": true,
+    "packages\\jwala-cms\\.babelrc": true,
+    "packages\\jwala-cms\\src\\app.js": true,
+    "packages\\jwala-cms\\src\\index.js": true
   },
   "workbench.colorTheme": "Dracula Soft"
 }
